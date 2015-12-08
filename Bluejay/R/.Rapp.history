@@ -1,0 +1,13 @@
+libraray(ggplot2)
+library(ggplot2)
+library(grid)
+source("Bluejay_v0.1.R")
+Bluejay.classify("../../../OCI 1021.pd")
+source("Bluejay_v0.1.R")
+Bluejay.classify("../../../OCI 1021.pd")
+source("Bluejay_v0.1.R")
+Bluejay.classify("../../../OCI 1021.pd")
+source("Bluejay_v0.1.R")
+Bluejay.classify("../../../OCI 1021.pd")
+library(roxygen2)
+roxygenize
