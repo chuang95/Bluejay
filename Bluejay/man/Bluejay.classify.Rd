@@ -10,7 +10,7 @@ Bluejay.classify(inputfile, Day_limit = 200, CA125_limit = 500,
 \arguments{
 \item{inputfile}{CA125 pd file}
 
-\item{Day_limit}{time range, this function will classify patient base on the CA125 history of these days + 21 (3 weeks) after surgery}
+\item{Day_limit}{time period, this function will classify patient base on the CA125 history of these days + 21 (3 weeks) after surgery}
 
 \item{CA125_limit}{CA125 upper limit when plotting}
 

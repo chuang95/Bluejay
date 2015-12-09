@@ -19,10 +19,10 @@ DrugResponse.predict(input file, Day_limit=200,CA125_limit=500,CA125_bound=35)
 
 Arguments
 
-inputfile	CA125 pd file
-Day_limit	time range, this function will classify patient base on the CA125 history of these days + 21 (3 weeks) after surgery
-CA125_limit	CA125 upper limit when plotting
-CA125_bound	CA125 value lower bound, we will consider this patient temporary cured if her CA125 value lower than this number
+inputfile       CA125 pd file
+Day_limit       time period, this function will classify patient base on the CA125 history of these days + 21 (3 weeks) after surgery
+CA125_limit     CA125 upper limit when plotting
+CA125_bound     CA125 value lower bound, we will consider this patient temporary cured if her CA125 value lower than this number
 
 return a drug response label: non-determined, sensitive, resistant, CA125 decrease caused by surgery
 
