@@ -14,7 +14,7 @@ library grid
 
 Usage
 
-DrugResponse.predict(input file, Day_limit=200,CA125_limit=500,CA125_bound=35)
+Bluejay.classify(input file, Day_limit=200,CA125_limit=500,CA125_bound=35)
 
 
 Arguments
