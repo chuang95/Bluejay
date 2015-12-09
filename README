@@ -2,7 +2,6 @@ Drug response classier
 
 R package use for classify ovarian cancer patients drug response by CA125 profile
 
-
 This function classifies drug response by using CA125 history profile
 
 
