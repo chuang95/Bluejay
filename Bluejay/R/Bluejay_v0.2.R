@@ -21,17 +21,19 @@ NULL
 #'
 #' @param patient_name     	name of the patient
 #'
-#' @param Day_limit			time period, this function will classify patient base on the CA125 history of these days + 21 (3 weeks) after surgery
+#' @param Day_limit			time period, this function will classify patient base on the CA125 history of these days + 21 days (3 weeks) after surgery
 #'
 #' @param CA125_limit		CA125 upper limit when plotting
 #'
 #' @param CA125_bound		CA125 value lower bound, we will consider this patient temporary cured if her CA125 value lower than this number
+#'
+#' @param dfs     			default 21 days (3 weeks) after surgery
 #' 
 #' @return a drug response label: non-determined, sensitive, resistant, CA125 decrease caused by surgery
 #'
 #' @export
  
-Bluejay.classify <- function(inputfile,patient_name,Day_limit=200,CA125_limit=500,CA125_bound=35)
+Bluejay.classify <- function(inputfile,patient_name,Day_limit=200,CA125_limit=500,CA125_bound=35,dfs=21)
 {
     #read input file
     #fname=strsplit(inputfile, split='.', fixed=TRUE)
@@ -133,8 +135,8 @@ Bluejay.classify <- function(inputfile,patient_name,Day_limit=200,CA125_limit=50
         }
     }
     xend=c(xend,din[j+1])
-    xstart=as.numeric(xstart)-(s_d[1]+21)
-    xend=as.numeric(xend)-(s_d[1]+21)
+    xstart=as.numeric(xstart)-(s_d[1]+dfs)
+    xend=as.numeric(xend)-(s_d[1]+dfs)
     xstart[which(xstart<0)]=0
     xend[which(xend<0)]=0
     rects <- data.frame(xstart, xend, Therapy)
@@ -156,7 +158,7 @@ Bluejay.classify <- function(inputfile,patient_name,Day_limit=200,CA125_limit=50
         }
     }
  
-    Pinf[,1]=Pinf[,1]-(s_d[1]+21)
+    Pinf[,1]=Pinf[,1]-(s_d[1]+dfs)
     Pinf=Pinf[which(Pinf[,1]>0),]
  
     solid_p_x=Pinf[which(Pinf[,1]<Day_limit),]
