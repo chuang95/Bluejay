@@ -18,12 +18,12 @@ Bluejay.classify(input file, Day_limit=200,CA125_limit=500,CA125_bound=35)
 
 **Arguments**
 
-* Item inputfile########CA125 pd file
-* Item patient_name#####name of the patient
-* Item Day_limit########time period, this function will classify patient base on the CA125 history of these days + 21 (3 weeks) after surgery
-* Item CA125_limit######CA125 upper limit when plotting
-* Item CA125_bound######CA125 value lower bound, we will consider this patient temporary cured if her CA125 value lower than this number
-* Item dfs##############default 21 days (3 weeks) after surgery
+* inputfile         CA125 pd file
+* patient_name      name of the patient
+* Day_limit         time period, this function will classify patient base on the CA125 history of these days + 21 (3 weeks) after surgery
+* CA125_limit       CA125 upper limit when plotting
+* CA125_bound       CA125 value lower bound, we will consider this patient temporary cured if her CA125 value lower than this number
+* dfs               default 21 days (3 weeks) after surgery
 
 **Return**
 
