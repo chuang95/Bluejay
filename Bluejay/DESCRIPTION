@@ -1,6 +1,6 @@
 Package: Bluejay
 Title: CA125 classifier
-Version: 0.1
+Version: 0.2
 Author: Cai Huang
 Description: Classify OV patients drug response by CA125 profile
 Depends: R (>= 3.2.2), ggplot2, grid
