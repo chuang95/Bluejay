@@ -20,8 +20,10 @@ NULL
 #' @param inputfile     	CA125 pd file
 #'
 #' @param patient_name     	name of the patient
+#'  
+#' @param Days_plot			days after the first CA125 test
 #'
-#' @param Day_limit			time period, this function will classify patient base on the CA125 history of these days + 21 days (3 weeks) after surgery
+#' @param Day_limit			time period, this function will classify patient base on the CA125 history of these days + 21 days (3 weeks) after surgery		 
 #'
 #' @param CA125_limit		CA125 upper limit when plotting
 #'
@@ -33,7 +35,7 @@ NULL
 #'
 #' @export
  
-Bluejay.classify <- function(inputfile,patient_name,Day_limit=200,CA125_limit=500,CA125_bound=35,dfs=21)
+Bluejay.classify <- function(inputfile,patient_name,Days_plot=1000,Day_limit=200,CA125_limit=500,CA125_bound=35,dfs=21)
 {
     #read input file
     #fname=strsplit(inputfile, split='.', fixed=TRUE)
@@ -163,7 +165,7 @@ Bluejay.classify <- function(inputfile,patient_name,Day_limit=200,CA125_limit=50
  
     solid_p_x=Pinf[which(Pinf[,1]<Day_limit),]
     solid_p=Pinf[which(Pinf[,2]<= CA125_limit),]
-    #Pinf[which(Pinf[,2]>500),2]= CA125_limit
+    #Pinf[which(Pinf[,2]>CA125_limit),2]= CA125_limit
  
     s_n=length(solid_p_x[,2])
  	
@@ -198,7 +200,7 @@ Bluejay.classify <- function(inputfile,patient_name,Day_limit=200,CA125_limit=50
 		}
 	}
  
-    p=Bluejay.plot(inputfile, patient_name,label)
+    p=Bluejay.plot(inputfile, patient_name,label,Days_plot,CA125_limit)
     
     pdf(paste("patient_", patient_name, "_ca125_plot.pdf", sep = ""))
     print(p)
@@ -212,7 +214,7 @@ Bluejay.mav <- function(x,n=5)
 	filter(x,rep(1/n,n), sides=2)
 }
 
-Bluejay.plot <- function(inputfile,patient_name,label)
+Bluejay.plot <- function(inputfile,patient_name,label,Days_plot,CA125_limit)
 {
     #fname=strsplit(inputfile, split='.', fixed=TRUE)
     #pname=strsplit(fname[[1]][1], split=' ', fixed=TRUE)
@@ -329,9 +331,9 @@ Bluejay.plot <- function(inputfile,patient_name,label)
 	}
 
 
-	#solid_in=which(Pinf[,2]<=500)
-	Pinf[which(Pinf[,2]>500),2]=500
-	solid_p=Pinf[which(Pinf[,2]<500),]
+	#solid_in=which(Pinf[,2]<=CA125_limit)
+	Pinf[which(Pinf[,2]>CA125_limit),2]=CA125_limit
+	solid_p=Pinf[which(Pinf[,2]<CA125_limit),]
 
 	#pdf(paste("patient_", patient_name, "_ca125_plot.pdf", sep = ""))
 
@@ -343,7 +345,7 @@ Bluejay.plot <- function(inputfile,patient_name,label)
 	geom_line(data= Pinf, aes(x=days, y=ca125, group=1)) + geom_point(data= Pinf, aes(x=days, y=ca125, group=1,shape = factor(1)),na.rm = TRUE,colour="grey50", size = 3)+guides(shape=FALSE)+ scale_shape(solid = FALSE)+theme_bw() + 	theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(),panel.grid.minor = element_blank(),panel.border = element_blank(),panel.background = element_blank())
 	}
 
-	p <-p + geom_vline(xintercept = s_d,colour="red", linetype = "dotted",size = 1)+ ggtitle(paste("Patient ", patient_name, " CA125", "\n", label, sep = "")) + theme(plot.title = element_text(size=22, face="bold.italic")) +theme(legend.position = 	"top",legend.direction="vertical")+ xlim(0, 1000)+ylim(0,500)
+	p <-p + geom_vline(xintercept = s_d,colour="red", linetype = "dotted",size = 1)+ ggtitle(paste("Patient ", patient_name, " CA125", "\n", label, sep = "")) + theme(plot.title = element_text(size=22, face="bold.italic")) +theme(legend.position = 	"top",legend.direction="vertical")+ xlim(0, Days_plot)+ylim(0,CA125_limit)
 
 	#dev.off()
 	return(p)
