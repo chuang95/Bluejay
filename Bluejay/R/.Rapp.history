@@ -1,28 +1,4 @@
 p <- ggplot() +geom_rect(data = rects, aes(xmin = xstart, xmax = xend, ymin = -Inf, ymax = Inf, fill = Therapy_n), alpha = 0.4)+#
-geom_line(data= Pinf, aes(x=days, y=ca125, group=1)) + geom_point(data= Pinf, aes(x=days, y=ca125, group=1),na.rm = TRUE,colour="grey50" size = 3)+theme_bw() + theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(),panel.grid.minor = element_blank(),panel.border = element_blank(),panel.background = element_blank())#
-#
-p + geom_vline(xintercept = s_d,colour="red", linetype = "dotted",size = 1)+ ggtitle(paste("patient ", pname[[1]][2]," ca125", sep = "")) + theme(plot.title = element_text(lineheight=.8, face="bold")) +theme(legend.position = "top",legend.direction="vertical")+ xlim(0, 1000)+ylim(0,500)
-p <- ggplot() +geom_rect(data = rects, aes(xmin = xstart, xmax = xend, ymin = -Inf, ymax = Inf, fill = Therapy_n), alpha = 0.4)+#
-geom_line(data= Pinf, aes(x=days, y=ca125, group=1)) + geom_point(data= Pinf, aes(x=days, y=ca125, group=1),na.rm = TRUE)+theme_bw() + theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(),panel.grid.minor = element_blank(),panel.border = element_blank(),panel.background = element_blank())#
-#
-p + geom_vline(xintercept = s_d,colour="red", linetype = "dotted",size = 1)+ ggtitle(paste("patient ", pname[[1]][2]," ca125", sep = "")) + theme(plot.title = element_text(lineheight=.8, face="bold")) +theme(legend.position = "top",legend.direction="vertical")+ xlim(0, 1000)+ylim(0,500)
-p <- ggplot() +geom_rect(data = rects, aes(xmin = xstart, xmax = xend, ymin = -Inf, ymax = Inf, fill = Therapy_n), alpha = 0.4)+#
-geom_line(data= Pinf, aes(x=days, y=ca125, group=1)) + geom_point(data= Pinf, aes(x=days, y=ca125, group=1),na.rm = TRUE,colour="grey50" size = 3)+theme_bw() + theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(),panel.grid.minor = element_blank(),panel.border = element_blank(),panel.background = element_blank())#
-#
-p + geom_vline(xintercept = s_d,colour="red", linetype = "dotted",size = 1)+ ggtitle(paste("patient ", pname[[1]][2]," ca125", sep = "")) + theme(plot.title = element_text(lineheight=.8, face="bold")) +theme(legend.position = "top",legend.direction="vertical")+ xlim(0, 1000)+ylim(0,500)
-p <- ggplot() +geom_rect(data = rects, aes(xmin = xstart, xmax = xend, ymin = -Inf, ymax = Inf, fill = Therapy_n), alpha = 0.4)+#
-geom_line(data= Pinf, aes(x=days, y=ca125, group=1)) + geom_point(data= Pinf, aes(x=days, y=ca125, group=1),na.rm = TRUE,colour="red" size = 3)+theme_bw() + theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(),panel.grid.minor = element_blank(),panel.border = element_blank(),panel.background = element_blank())#
-#
-p + geom_vline(xintercept = s_d,colour="red", linetype = "dotted",size = 1)+ ggtitle(paste("patient ", pname[[1]][2]," ca125", sep = "")) + theme(plot.title = element_text(lineheight=.8, face="bold")) +theme(legend.position = "top",legend.direction="vertical")+ xlim(0, 1000)+ylim(0,500)
-p <- ggplot() +geom_rect(data = rects, aes(xmin = xstart, xmax = xend, ymin = -Inf, ymax = Inf, fill = Therapy_n), alpha = 0.4)+#
-geom_line(data= Pinf, aes(x=days, y=ca125, group=1)) + geom_point(data= Pinf, aes(x=days, y=ca125, group=1),na.rm = TRUE,colour="grey50", size = 3)+theme_bw() + theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(),panel.grid.minor = element_blank(),panel.border = element_blank(),panel.background = element_blank())#
-#
-p + geom_vline(xintercept = s_d,colour="red", linetype = "dotted",size = 1)+ ggtitle(paste("patient ", pname[[1]][2]," ca125", sep = "")) + theme(plot.title = element_text(lineheight=.8, face="bold")) +theme(legend.position = "top",legend.direction="vertical")+ xlim(0, 1000)+ylim(0,500)
-p <- ggplot() +geom_rect(data = rects, aes(xmin = xstart, xmax = xend, ymin = -Inf, ymax = Inf, fill = Therapy_n), alpha = 0.4)+#
-geom_line(data= Pinf, aes(x=days, y=ca125, group=1)) + geom_point(data= Pinf, aes(x=days, y=ca125, group=1,shape = 1),na.rm = TRUE,colour="grey50", size = 3)+ scale_shape(solid = FALSE)+theme_bw() + theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(),panel.grid.minor = element_blank(),panel.border = element_blank(),panel.background = element_blank())#
-#
-p + geom_vline(xintercept = s_d,colour="red", linetype = "dotted",size = 1)+ ggtitle(paste("patient ", pname[[1]][2]," ca125", sep = "")) + theme(plot.title = element_text(lineheight=.8, face="bold")) +theme(legend.position = "top",legend.direction="vertical")+ xlim(0, 1000)+ylim(0,500)
-p <- ggplot() +geom_rect(data = rects, aes(xmin = xstart, xmax = xend, ymin = -Inf, ymax = Inf, fill = Therapy_n), alpha = 0.4)+#
 geom_line(data= Pinf, aes(x=days, y=ca125, group=1)) + geom_point(data= Pinf, aes(x=days, y=ca125, group=1,shape = factor(1)),na.rm = TRUE,colour="grey50", size = 3)+ scale_shape(solid = FALSE)+theme_bw() + theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(),panel.grid.minor = element_blank(),panel.border = element_blank(),panel.background = element_blank())#
 #
 p + geom_vline(xintercept = s_d,colour="red", linetype = "dotted",size = 1)+ ggtitle(paste("patient ", pname[[1]][2]," ca125", sep = "")) + theme(plot.title = element_text(lineheight=.8, face="bold")) +theme(legend.position = "top",legend.direction="vertical")+ xlim(0, 1000)+ylim(0,500)
@@ -13776,21 +13752,6 @@ rm(list = setdiff(ls(), lsf.str()))#
 library(ggplot2)#
 library(grid)#
 source('Bluejay_v0.2.R')#
-Bluejay.classify('../../../OCI 183.pd','183')
-rm(list = setdiff(ls(), lsf.str()))#
-library(ggplot2)#
-library(grid)#
-source('Bluejay_v0.2.R')#
-Bluejay.classify('../../../OCI 183.pd','183')
-rm(list = setdiff(ls(), lsf.str()))#
-library(ggplot2)#
-library(grid)#
-source('Bluejay_v0.2.R')#
-Bluejay.classify('../../../OCI 183.pd','183')
-rm(list = setdiff(ls(), lsf.str()))#
-library(ggplot2)#
-library(grid)#
-source('Bluejay_v0.2.R')#
 Bluejay.classify('../../../OCI 183.pd','183')#
 Bluejay.classify('../../../OCI 528p.pd','528p')#
 Bluejay.classify('../../../OCI 992.pd','992')#
@@ -13849,26 +13810,6 @@ rm(list = setdiff(ls(), lsf.str()))#
 library(ggplot2)#
 library(grid)#
 source('Bluejay_v0.2.R')#
-Bluejay.classify('../../../OCI 183.pd','183')
-rm(list = setdiff(ls(), lsf.str()))#
-library(ggplot2)#
-library(grid)#
-source('Bluejay_v0.2.R')#
-Bluejay.classify('../../../OCI 183.pd','183')
-rm(list = setdiff(ls(), lsf.str()))#
-library(ggplot2)#
-library(grid)#
-source('Bluejay_v0.2.R')#
-Bluejay.classify('../../../OCI 183.pd','183')
-rm(list = setdiff(ls(), lsf.str()))#
-library(ggplot2)#
-library(grid)#
-source('Bluejay_v0.2.R')#
-Bluejay.classify('../../../OCI 183.pd','183')
-rm(list = setdiff(ls(), lsf.str()))#
-library(ggplot2)#
-library(grid)#
-source('Bluejay_v0.2.R')#
 Bluejay.classify('../../../OCI 183.pd','183')#
 Bluejay.classify('../../../OCI 528p.pd','528p')#
 Bluejay.classify('../../../OCI 992.pd','992')#
@@ -13892,24 +13833,23 @@ Bluejay.classify('../../../OCI 369.pd','369')
 rm(list = setdiff(ls(), lsf.str()))#
 library(ggplot2)#
 library(grid)#
-source('Bluejay_v0.2.R')#
-Bluejay.classify('../../../OCI 183.pd','183')#
-Bluejay.classify('../../../OCI 528p.pd','528p')#
-Bluejay.classify('../../../OCI 992.pd','992')#
-Bluejay.classify('../../../OCI 545R.pd','545R')#
-Bluejay.classify('../../../OCI 1021.pd','1021')#
-Bluejay.classify('../../../OCI 813.pd','813')#
-Bluejay.classify('../../../OCI 588.pd','588')#
-Bluejay.classify('../../../OCI 242.pd','242')#
-Bluejay.classify('../../../OCI 1145.pd','1145')#
-Bluejay.classify('../../../OCI 1129.pd','1129')#
-Bluejay.classify('../../../OCI 1122-1153.pd','1122')#
-Bluejay.classify('../../../OCI 489-559.pd','489')#
-Bluejay.classify('../../../OCI 413.pd','413')#
-Bluejay.classify('../../../OCI 542.pd','542')#
-Bluejay.classify('../../../OCI 272.pd','272')#
-Bluejay.classify('../../../OCI 336.pd','336')#
-Bluejay.classify('../../../OCI 229.pd','229')#
-Bluejay.classify('../../../OCI 317.pd','317')#
-Bluejay.classify('../../../OCI 537.pd','537')#
-Bluejay.classify('../../../OCI 369.pd','369')
+source('Bluejay_v0.2.R')
+Bluejay.classify('../../../OCI 545R.pd','545R',200,300)
+Bluejay.classify('../../../OCI 545p.pd','528p',200,300)
+Bluejay.classify('../../../OCI 528p.pd','528p',200,300)
+rm(list = setdiff(ls(), lsf.str()))#
+library(ggplot2)#
+library(grid)#
+source('Bluejay_v0.2.R')
+Bluejay.classify('../../../OCI 528p.pd','528p',200,300)
+rm(list = setdiff(ls(), lsf.str()))#
+library(ggplot2)#
+library(grid)#
+source('Bluejay_v0.2.R')
+Bluejay.classify('../../../OCI 528p.pd','528p',200,300)
+Bluejay.classify('../../../OCI 528p.pd','528p',1000)
+Bluejay.classify('../../../OCI 528p.pd','528p',500)
+Bluejay.classify('../../../OCI 528p.pd','528p',600)
+Bluejay.classify('../../../OCI 528p.pd','528p',700)
+Bluejay.classify('../../../OCI 528p.pd','528p',800)
+Bluejay.classify('../../../OCI 528p.pd','528p',500)

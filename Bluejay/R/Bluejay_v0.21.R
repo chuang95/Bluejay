@@ -31,7 +31,7 @@ NULL
 #'
 #' @param dfs     			default 21 days (3 weeks) after surgery
 #' 
-#' @return a drug response label: non-determined, sensitive, resistant, CA125 decrease caused by surgery
+#' @return a drug response label: non-determined, sensitive, resistant
 #'
 #' @export
  
@@ -186,7 +186,7 @@ Bluejay.classify <- function(inputfile,patient_name,Days_plot=1000,Day_limit=200
 			adr=mean(diff(Bluejay.mav(solid_p_x[,2],2))/Bluejay.mav(solid_p_x[,2],2)[c(1:(s_n-1))],na.rm=TRUE)
 			if(Pinf[1,2]<= CA125_bound & length(which(solid_p_x[,2]> (CA125_bound+5)))<1)
 			{
-				label="CA125 decrease caused by surgery"
+				label="non-determined"
 			}else if(Pinf[1,2]>= CA125_bound & (adr < (-0.3) || length(which(solid_p_x[,2] < CA125_bound))>0) )
 			{
 				label="sensitive"
@@ -205,7 +205,7 @@ Bluejay.classify <- function(inputfile,patient_name,Days_plot=1000,Day_limit=200
     pdf(paste("patient_", patient_name, "_ca125_plot.pdf", sep = ""))
     print(p)
     dev.off()
-
+    
  	return(label)
 }
  
@@ -219,8 +219,8 @@ Bluejay.plot <- function(inputfile,patient_name,label,Days_plot,CA125_limit)
     #fname=strsplit(inputfile, split='.', fixed=TRUE)
     #pname=strsplit(fname[[1]][1], split=' ', fixed=TRUE)
     Pinf =read.csv(inputfile,head=TRUE)
-
-	Pinf =read.csv(inputfile,head=TRUE)
+	Pinf=Pinf[which(Pinf[,1]<Days_plot),]
+	
 	pd = dim(Pinf)
 
 	n_nullind=which(Pinf$drug!= "NULL")
@@ -320,6 +320,12 @@ Bluejay.plot <- function(inputfile,patient_name,label,Days_plot,CA125_limit)
 
 	rects <- data.frame(xstart, xend, Therapy)
 
+	if(length(Pinf[!is.na(Pinf$ca125),2])==0)
+	{
+		print("No CA125 value with in Days_plot, please increase number of Days_plot")
+		return(0)
+	}
+	
 	Pinf=Pinf[!is.na(Pinf$ca125),]
 	y_l=max(Pinf[,2]+300)
 	l_t=length(Therapy)

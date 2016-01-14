@@ -28,7 +28,7 @@ Bluejay.classify(input file, Day_limit=200,CA125_limit=500,CA125_bound=35)
 
 **Return**
 
-A drug response label: non-determined, sensitive, resistant, CA125 decrease caused by surgery
+A drug response label: non-determined, sensitive, resistant
 
 **Install**
 
